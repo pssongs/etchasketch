@@ -1,20 +1,26 @@
-#container {
+#wholeGrid {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 600px;
     
 }
-
+#container{
+    height: 600px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    border: black solid 1px;
+}
+.color{
+    background-color: aqua;
+}
 .row{
     display: flex;
     flex-direction: column;
-    
-    
 }
 
 .gridsquare{
-    border: solid black 1px;
     box-sizing: border-box;
 
 }
@@ -31,9 +37,10 @@
     margin-bottom: 1em;
 }
 .button {
-    background-color: beige;
+    background-color: rgba(129, 57, 45, 0.133);
     height: 30px;
     width: 75px;
+    border-radius: 10px;
 }
 
 .buttons {
@@ -42,4 +49,14 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+    align-items: center;
+}
+#rangeNumber{
+    font-family: 'Courier New', Courier, monospace;
+    border: black solid 1px;
+    box-shadow: 2px;
+    border-radius: 8px;
+    width: 30px;
+    height: 1.2em;
+    padding-top: 2px;
 }

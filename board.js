@@ -4,6 +4,8 @@ function generateDivs(e){
     } else {
         num = e
     }
+    let value = document.querySelector('#rangeNumber')
+    value.textContent = `${num}`
     var container = document.querySelector('#container')
     container.innerHTML = ''
     for (let i = 0; i < num; i++){
@@ -19,8 +21,7 @@ function generateDivs(e){
         }
         container.appendChild(row)
     }
-    let value = document.querySelector('#rangeNumber')
-    value.textContent = `${num}`
+    remove()
     fill()
 }
 function fill(){
@@ -31,14 +32,51 @@ function fill(){
         })
 })
 }
-// const buttons = document.querySelectorAll('.button')
-// buttons.forEach(button => {
-//     button.addEventListener('click', generateDivs)
-// },false)
+function color(){
+    const square = document.querySelectorAll('.gridsquare')
+    square.forEach(grid => {
+        grid.addEventListener('mouseover', function(){
+        grid.classList.remove('black')
+        grid.classList.add('color')
+    })
+})
+}
+function black(){
+    const square = document.querySelectorAll('.gridsquare')
+    square.forEach(grid => {
+        grid.addEventListener('mouseover', function(){
+        grid.classList.remove('color')
+        grid.classList.add('black')
+    })
+})    
+
+}
+function remove(){
+    const square = document.querySelectorAll('.gridsquare')
+    const reset = document.querySelector('#reset')
+    reset.addEventListener('click', function() {
+    square.forEach(grid => {
+        grid.classList.remove('color')
+        grid.classList.remove('black')
+        })
+    const range = document.querySelector('#range')
+    window.onload = generateDivs(range.value)   
+} )
+}
 
 
 const range = document.querySelector('#range')
-window.onload = generateDivs(25)
+window.onload = generateDivs(range.value)
 range.addEventListener('input', generateDivs)
 
-console.log(range)
+const rgb = document.querySelector('#RGB')
+rgb.addEventListener('click',function(){
+    color()
+})    
+
+const blk = document.querySelector('#black')
+blk.addEventListener('click',function(){
+    black()
+})
+
+
