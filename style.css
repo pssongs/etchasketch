@@ -2,24 +2,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 600px;
     
 }
 
 .row{
     display: flex;
     flex-direction: column;
-    margin-left: -1px;
-    height: 400px;
+    
     
 }
 
 .gridsquare{
     border: solid black 1px;
     box-sizing: border-box;
-    margin-top: -1px;
-    width: 10px;
-    height: 10px;
+
 }
 
 .black{
@@ -42,4 +39,7 @@
 .buttons {
     text-align: center;
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
