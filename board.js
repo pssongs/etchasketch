@@ -28,7 +28,13 @@ function fill(){
     const square = document.querySelectorAll('.gridsquare')
     square.forEach(grid => {
             grid.addEventListener('mouseover', function(){
-            grid.classList.add('black')
+            if(mode == 'black'){
+                grid.style['background-color'] = `black`
+            } else {
+                var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                grid.style['background-color'] = `${randomColor}`
+            }
+            
         })
 })
 }
@@ -36,8 +42,9 @@ function color(){
     const square = document.querySelectorAll('.gridsquare')
     square.forEach(grid => {
         grid.addEventListener('mouseover', function(){
-        grid.classList.remove('black')
-        grid.classList.add('color')
+        var randomColor = Math.floor(Math.random()*16777215).toString(16);
+        grid.style['background-color'] = `#${randomColor}`
+        mode = 'color'
     })
 })
 }
@@ -45,8 +52,8 @@ function black(){
     const square = document.querySelectorAll('.gridsquare')
     square.forEach(grid => {
         grid.addEventListener('mouseover', function(){
-        grid.classList.remove('color')
-        grid.classList.add('black')
+        grid.style['background-color'] = 'black'
+        mode = 'black'
     })
 })    
 
@@ -56,14 +63,12 @@ function remove(){
     const reset = document.querySelector('#reset')
     reset.addEventListener('click', function() {
     square.forEach(grid => {
-        grid.classList.remove('color')
-        grid.classList.remove('black')
+        grid.style['background-color'] = ''
         })
-    const range = document.querySelector('#range')
-    window.onload = generateDivs(range.value)   
+   
 } )
 }
-
+var mode = 'black'
 
 const range = document.querySelector('#range')
 window.onload = generateDivs(range.value)
@@ -78,5 +83,4 @@ const blk = document.querySelector('#black')
 blk.addEventListener('click',function(){
     black()
 })
-
 
