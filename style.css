@@ -32,7 +32,6 @@
 #title {
     font-size: 60px;
     text-align: center;
-    font-family: 'Nerko One';
     margin-top: 1em;
     margin-bottom: 1em;
     background-color: rgb(221, 223, 194);
@@ -71,4 +70,7 @@ header {
 }
 body {
     background-color: #3a55a0;
+}
+* {
+    font-family: 'Nerko One';
 }
