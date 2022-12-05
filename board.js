@@ -8,6 +8,7 @@ function generateDivs(e){
     value.textContent = `${num}`
     var container = document.querySelector('#container')
     container.innerHTML = ''
+    //create grid
     for (let i = 0; i < num; i++){
         let row = document.createElement('div')
         row.className = 'row'
@@ -24,36 +25,36 @@ function generateDivs(e){
     remove()
     fill()
 }
+
 function fill(){
-    const square = document.querySelectorAll('.gridsquare')
-    square.forEach(grid => {
-            grid.addEventListener('mouseover', function(){
-            if(mode == 'black'){
-                grid.style['background-color'] = `black`
-            } else {
-                var randomColor = Math.floor(Math.random()*16777215).toString(16);
-                grid.style['background-color'] = `${randomColor}`
-            }
-            
-        })
-})
+    //starts on black mode
+    black()
+    const rgb = document.querySelector('#RGB')
+    rgb.addEventListener('click',function(){
+        color()
+    })    
+
+    const blk = document.querySelector('#black')
+    blk.addEventListener('click',function(){
+        black()
+    })
 }
+
 function color(){
     const square = document.querySelectorAll('.gridsquare')
     square.forEach(grid => {
         grid.addEventListener('mouseover', function(){
         var randomColor = Math.floor(Math.random()*16777215).toString(16);
         grid.style['background-color'] = `#${randomColor}`
-        mode = 'color'
     })
 })
 }
+
 function black(){
     const square = document.querySelectorAll('.gridsquare')
     square.forEach(grid => {
         grid.addEventListener('mouseover', function(){
         grid.style['background-color'] = 'black'
-        mode = 'black'
     })
 })    
 
@@ -63,24 +64,16 @@ function remove(){
     const reset = document.querySelector('#reset')
     reset.addEventListener('click', function() {
     square.forEach(grid => {
-        grid.style['background-color'] = ''
+        grid.style['background-color'] = 'white'
         })
    
 } )
 }
-var mode = 'black'
+
 
 const range = document.querySelector('#range')
 window.onload = generateDivs(range.value)
 range.addEventListener('input', generateDivs)
 
-const rgb = document.querySelector('#RGB')
-rgb.addEventListener('click',function(){
-    color()
-})    
 
-const blk = document.querySelector('#black')
-blk.addEventListener('click',function(){
-    black()
-})
 

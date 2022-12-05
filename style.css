@@ -22,7 +22,7 @@
 
 .gridsquare{
     box-sizing: border-box;
-
+    background-color: white;
 }
 
 .black{
@@ -30,19 +30,26 @@
 }
 
 #title {
-    font-size: 36px;
+    font-size: 60px;
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    margin-top: 3em;
+    font-family: 'Nerko One';
+    margin-top: 1em;
     margin-bottom: 1em;
+    background-color: rgb(221, 223, 194);
+    border-radius: 10px;
+    padding: 3px 12px 3px 12px
+
 }
 .button, .mode {
-    background-color: rgba(129, 57, 45, 0.133);
+    background-color:rgb(221, 223, 194);
     height: 30px;
     width: 75px;
     border-radius: 10px;
 }
-
+header {
+    display: flex;
+    justify-content: center;
+}
 .buttons {
     text-align: center;
     margin-top: 40px;
@@ -58,5 +65,10 @@
     border-radius: 8px;
     width: 30px;
     height: 1.2em;
-    padding-top: 2px;
+    padding: 2px;
+    padding-top: 3px;
+    background-color: rgb(221, 223, 194);
+}
+body {
+    background-color: #3a55a0;
 }
