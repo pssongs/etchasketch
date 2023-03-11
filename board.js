@@ -22,6 +22,7 @@ function generateDivs(e){
         }
         container.appendChild(row)
     }
+    
     remove()
     fill()
 }
@@ -71,9 +72,10 @@ function remove(){
 }
 
 
-const range = document.querySelector('#range')
+let range = document.querySelector('#range')
+range.addEventListener("input", function() {
+    generateDivs(range.value)
+})
 window.onload = generateDivs(range.value)
-range.addEventListener('input', generateDivs)
-
 
 
